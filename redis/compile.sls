@@ -1,8 +1,9 @@
-{% set version = '4.0.0' %}
+{% from "redis/map.jinja" import redis_conf with context %}
+{% set version = redis_conf.version %}
 
 /root/redis-{{version}}.tar.gz:
   file.managed:
-    - source: http://download.redis.io/releases/redis-{{ version }}.tar.gz
+    - source: http://download.redis.io/releases/redis-{{version}}.tar.gz
     - skip_verify: True
 
 unpack:

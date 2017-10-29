@@ -1,4 +1,5 @@
 include:
   - redis.compile
-  - redis.prepare_env
+  - redis.env
+  - redis.conf
   - redis.service
