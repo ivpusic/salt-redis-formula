@@ -5,6 +5,8 @@
   file.managed:
     - source: http://download.redis.io/releases/redis-{{version}}.tar.gz
     - skip_verify: True
+    - unless:
+      - ls /root/redis-{{version}}.tar.gz
 
 unpack:
   cmd.wait:
@@ -31,6 +33,8 @@ copy-server:
     - force: True
     - watch:
       - cmd: make
+    - unless:
+      - ls /usr/local/bin/redis-server
 
 copy-cli:
   file.copy:
@@ -39,3 +43,5 @@ copy-cli:
     - force: True
     - watch:
       - cmd: make
+    - unless:
+      - ls /usr/local/bin/redis-cli
