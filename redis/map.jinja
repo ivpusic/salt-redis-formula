@@ -1,8 +1,13 @@
 {% set redis_conf = salt['grains.filter_by']({
     'default': {
-        'version': '4.0.2'
+        'version': '4.0.2',
+        'cluster': {
+            'enabled': 'no'
+        },
+        'bind': '0.0.0.0',
+        'port': 6379
     },
 },
-merge=salt['pillar.get']('elasticsearch:lookup', {}),
+merge=salt['pillar.get']('redis:lookup', {}),
 default='default')
 %}

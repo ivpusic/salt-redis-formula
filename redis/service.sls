@@ -11,4 +11,5 @@ redis.service:
     - restart: True
     - watch:
       - file: /etc/systemd/system/redis.service
+      - file: /etc/redis/redis.conf
     - failhard: True
