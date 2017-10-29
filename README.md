@@ -9,3 +9,14 @@ base:
   '*':
     - redis
 ```
+
+Example pillar:
+
+```yml
+redis:
+  lookup:
+    cluster:
+      enabled: 'no'
+    bind: '0.0.0.0'
+    port: 6379
+```
