@@ -7,5 +7,6 @@
     - context:
       cluster: redis_conf.cluster
       bind: redis_conf.bind
+      port: redis_conf.port
     - user: root
     - group: root
